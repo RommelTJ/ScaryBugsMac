@@ -10,11 +10,11 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var masterViewController = MasterViewController()
+//    var masterViewController = MasterViewController()
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        masterViewController.setupSampleBugs()
+//        masterViewController.setupSampleBugs()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
