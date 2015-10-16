@@ -52,6 +52,8 @@
 		77156F951BD1692B00FF6C91 /* ScaryBugsMac */ = {
 			isa = PBXGroup;
 			children = (
+				77156FAA1BD1716800FF6C91 /* Model */,
+				77156FA91BD1715500FF6C91 /* GUI */,
 				77156F961BD1692B00FF6C91 /* AppDelegate.swift */,
 				77156F981BD1692B00FF6C91 /* ViewController.swift */,
 				77156F9A1BD1692B00FF6C91 /* Assets.xcassets */,
@@ -59,6 +61,20 @@
 				77156F9F1BD1692B00FF6C91 /* Info.plist */,
 			);
 			path = ScaryBugsMac;
+			sourceTree = "<group>";
+		};
+		77156FA91BD1715500FF6C91 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		77156FAA1BD1716800FF6C91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
