@@ -11,6 +11,8 @@
 		77156F991BD1692B00FF6C91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77156F981BD1692B00FF6C91 /* ViewController.swift */; };
 		77156F9B1BD1692B00FF6C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77156F9A1BD1692B00FF6C91 /* Assets.xcassets */; };
 		77156F9E1BD1692B00FF6C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77156F9C1BD1692B00FF6C91 /* Main.storyboard */; };
+		77156FAE1BD1730800FF6C91 /* ScaryBugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77156FAD1BD1730800FF6C91 /* ScaryBugData.swift */; settings = {ASSET_TAGS = (); }; };
+		77156FB01BD173CC00FF6C91 /* ScaryBugDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77156FAF1BD173CC00FF6C91 /* ScaryBugDoc.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		77156F9A1BD1692B00FF6C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77156F9D1BD1692B00FF6C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77156F9F1BD1692B00FF6C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77156FAD1BD1730800FF6C91 /* ScaryBugData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaryBugData.swift; sourceTree = "<group>"; };
+		77156FAF1BD173CC00FF6C91 /* ScaryBugDoc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaryBugDoc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 		77156FAA1BD1716800FF6C91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77156FAD1BD1730800FF6C91 /* ScaryBugData.swift */,
+				77156FAF1BD173CC00FF6C91 /* ScaryBugDoc.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -146,7 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77156FAE1BD1730800FF6C91 /* ScaryBugData.swift in Sources */,
 				77156F991BD1692B00FF6C91 /* ViewController.swift in Sources */,
+				77156FB01BD173CC00FF6C91 /* ScaryBugDoc.swift in Sources */,
 				77156F971BD1692B00FF6C91 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
