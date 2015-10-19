@@ -75,6 +75,35 @@ class MasterViewController: NSViewController {
 
 }
 
+//MARK: IBActions 
+extension MasterViewController {
+    @IBAction func deleteBug(sender: AnyObject) {
+        //Get selected Doc
+        if let _ = selectedBugDoc() {
+            //Remove the bug from the model.
+            self.bugs.removeAtIndex(self.bugsTableView.selectedRow)
+            //Remove the selected row from the table view.
+            self.bugsTableView.removeRowsAtIndexes(NSIndexSet(index: self.bugsTableView.selectedRow), withAnimation: NSTableViewAnimationOptions.SlideRight)
+            //Clear the detail info.
+            updateDetailInfo(nil)
+        }
+    }
+    
+    @IBAction func addBug(sender: AnyObject) {
+        //Create a new ScaryBugDoc object with a default name.
+        let newDoc = ScaryBugDoc(title: "New Bug", rating: 0.0, thumbImage: nil, fullImage: nil)
+        //Add the new bug object to our model.
+        self.bugs.append(newDoc)
+        let newRowIndex = self.bugs.count - 1
+        //Insert new row in the table view.
+        self.bugsTableView.insertRowsAtIndexes(NSIndexSet(index: newRowIndex), withAnimation: NSTableViewAnimationOptions.EffectGap)
+        //Select the new bug and scroll to make sure it's visible.
+        self.bugsTableView.selectRowIndexes(NSIndexSet(index: newRowIndex), byExtendingSelection: false)
+        self.bugsTableView.scrollRowToVisible(newRowIndex)
+    }
+    
+}
+
 //MARK: NSTableViewDataSource
 extension MasterViewController: NSTableViewDataSource {
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
