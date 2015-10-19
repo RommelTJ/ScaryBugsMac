@@ -15,6 +15,8 @@ class MasterViewController: NSViewController {
     @IBOutlet weak var bugTitleView: NSTextField!
     @IBOutlet weak var bugImageView: NSImageView!
     @IBOutlet weak var bugRating: EDStarRating!
+    @IBOutlet weak var deleteButton: NSButton!
+    @IBOutlet weak var changePictureButton: NSButton!
     var bugs = [ScaryBugDoc]()
     
     override func viewDidLoad() {
@@ -30,7 +32,7 @@ class MasterViewController: NSViewController {
         self.bugRating.delegate = self
         self.bugRating.maxRating = 5
         self.bugRating.horizontalMargin = 12
-        self.bugRating.editable = true
+        self.bugRating.editable = false
         self.bugRating.displayMode = UInt(EDStarRatingDisplayFull)
         self.bugRating.rating = Float(0)
     }
@@ -168,6 +170,13 @@ extension MasterViewController: NSTableViewDelegate {
     
     func tableViewSelectionDidChange(notification: NSNotification) {
         let selectedDoc = selectedBugDoc()
+        
+        let buttonsEnabled = (selectedDoc != nil)
+        deleteButton.enabled = buttonsEnabled
+        changePictureButton.enabled = buttonsEnabled
+        bugRating.editable = buttonsEnabled
+        bugTitleView.enabled = buttonsEnabled
+        
         updateDetailInfo(selectedDoc)
     }
 }

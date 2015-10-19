@@ -772,7 +772,7 @@
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r17-Hu-A6c">
                                 <rect key="frame" x="281" y="358" width="239" height="22"/>
                                 <animations/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="aym-O5-ZV2">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="aym-O5-ZV2">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -810,7 +810,7 @@
                                     <constraint firstAttribute="height" constant="25" id="8VX-vm-R67"/>
                                 </constraints>
                                 <animations/>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rAR-oA-z3L">
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rAR-oA-z3L">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -857,7 +857,7 @@
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="56z-O3-nb1">
                                 <rect key="frame" x="312" y="3" width="134" height="32"/>
                                 <animations/>
-                                <buttonCell key="cell" type="push" title="Change Picture" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IJz-CA-IuE">
+                                <buttonCell key="cell" type="push" title="Change Picture" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IJz-CA-IuE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -902,6 +902,8 @@
                         <outlet property="bugRating" destination="Mva-c6-c3T" id="1rc-EJ-s4k"/>
                         <outlet property="bugTitleView" destination="r17-Hu-A6c" id="1YI-Oh-26v"/>
                         <outlet property="bugsTableView" destination="Pno-GO-FbY" id="Sky-BL-tde"/>
+                        <outlet property="changePictureButton" destination="56z-O3-nb1" id="xXM-x4-gmd"/>
+                        <outlet property="deleteButton" destination="iw1-zs-0Od" id="m25-Zs-3f1"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
