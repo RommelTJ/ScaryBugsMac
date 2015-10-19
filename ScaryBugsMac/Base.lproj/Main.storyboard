@@ -776,6 +776,9 @@
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="bugTitleDidEndEdit:" target="XfG-lQ-9wD" id="mvH-k6-qHO"/>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JN4-c2-6L7">
                                 <rect key="frame" x="158" y="246" width="316" height="17"/>
@@ -787,7 +790,7 @@
                                 </textFieldCell>
                             </textField>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uow-YV-DTi">
-                                <rect key="frame" x="157" y="-2" width="318" height="183"/>
+                                <rect key="frame" x="157" y="25" width="318" height="156"/>
                                 <animations/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="iB6-cO-BWP"/>
                             </imageView>
@@ -817,6 +820,17 @@
                                     <action selector="addBug:" target="XfG-lQ-9wD" id="tL4-rM-OIJ"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="56z-O3-nb1">
+                                <rect key="frame" x="252" y="-4" width="129" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="Change Picture" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IJz-CA-IuE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="changePicture:" target="XfG-lQ-9wD" id="s7R-EK-VVE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Mva-c6-c3T" secondAttribute="trailing" constant="8" id="0cZ-UV-zBI"/>
@@ -838,7 +852,7 @@
                             <constraint firstItem="Mva-c6-c3T" firstAttribute="top" secondItem="JN4-c2-6L7" secondAttribute="bottom" constant="8" id="mXZ-eK-Qie"/>
                             <constraint firstAttribute="trailing" secondItem="r17-Hu-A6c" secondAttribute="trailing" constant="8" id="p6h-ba-Mlu"/>
                             <constraint firstAttribute="bottom" secondItem="yj5-Uk-dYP" secondAttribute="bottom" constant="28" id="pLB-vH-3uw"/>
-                            <constraint firstAttribute="bottom" secondItem="Uow-YV-DTi" secondAttribute="bottom" constant="1" id="uxg-Wn-HXI"/>
+                            <constraint firstAttribute="bottom" secondItem="Uow-YV-DTi" secondAttribute="bottom" constant="28" id="uxg-Wn-HXI"/>
                         </constraints>
                         <animations/>
                     </view>

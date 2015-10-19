@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Quartz
 
 class MasterViewController: NSViewController {
     
@@ -72,6 +73,11 @@ class MasterViewController: NSViewController {
         self.bugRating.rating = Float(rating)
     }
     
+    func reloadSelectedBugRow() {
+        let indexSet = NSIndexSet(index: self.bugsTableView.selectedRow)
+        let columnSet = NSIndexSet(index: 0)
+        self.bugsTableView.reloadDataForRowIndexes(indexSet, columnIndexes: columnSet)
+    }
 
 }
 
@@ -100,6 +106,31 @@ extension MasterViewController {
         //Select the new bug and scroll to make sure it's visible.
         self.bugsTableView.selectRowIndexes(NSIndexSet(index: newRowIndex), byExtendingSelection: false)
         self.bugsTableView.scrollRowToVisible(newRowIndex)
+    }
+    
+    @IBAction func bugTitleDidEndEdit(sender: AnyObject) {
+        if let selectedDoc = selectedBugDoc() {
+            selectedDoc.data.title = self.bugTitleView.stringValue
+            reloadSelectedBugRow()
+        }
+    }
+    
+    @IBAction func changePicture(sender: AnyObject) {
+        if let _ = selectedBugDoc() {
+            IKPictureTaker().beginPictureTakerSheetForWindow(self.view.window, withDelegate: self, didEndSelector: "pictureTakerDidEnd:returnCode:contextInfo:", contextInfo: nil)
+        }
+    }
+    
+    func pictureTakerDidEnd(picker: IKPictureTaker, returnCode: NSInteger, contextInfo: UnsafePointer<Void>) {
+        let image = picker.outputImage()
+        if image != nil && returnCode == NSModalResponseOK {
+            self.bugImageView.image = image
+            if let selectedDoc = selectedBugDoc() {
+                selectedDoc.fullImage = image
+                selectedDoc.thumbImage = image.imageByScalingAndCroppingForSize(CGSize(width: 44, height: 44))
+                reloadSelectedBugRow()
+            }
+        }
     }
     
 }
@@ -138,5 +169,9 @@ extension MasterViewController: NSTableViewDelegate {
 
 //MARK: EDStarRatingProtocol
 extension MasterViewController: EDStarRatingProtocol {
-    
+    func starsSelectionChanged(control: EDStarRating!, rating: Float) {
+        if let selectedDoc = selectedBugDoc() {
+            selectedDoc.data.rating = Double(self.bugRating.rating)
+        }
+    }
 }
