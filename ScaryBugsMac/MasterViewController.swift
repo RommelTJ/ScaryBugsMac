@@ -133,6 +133,11 @@ extension MasterViewController {
         }
     }
     
+    @IBAction func resetData(sender: AnyObject) {
+        setupSampleBugs()
+        updateDetailInfo(nil)
+        bugsTableView.reloadData()
+    }
 }
 
 //MARK: NSTableViewDataSource
