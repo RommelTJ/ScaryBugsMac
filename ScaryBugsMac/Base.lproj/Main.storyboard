@@ -820,6 +820,12 @@
                         </constraints>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="bugImageView" destination="Uow-YV-DTi" id="4wg-Zx-HjW"/>
+                        <outlet property="bugRating" destination="Mva-c6-c3T" id="1rc-EJ-s4k"/>
+                        <outlet property="bugTitleView" destination="r17-Hu-A6c" id="1YI-Oh-26v"/>
+                        <outlet property="bugsTableView" destination="Pno-GO-FbY" id="Sky-BL-tde"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

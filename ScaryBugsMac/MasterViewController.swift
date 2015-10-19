@@ -10,6 +10,10 @@ import Cocoa
 
 class MasterViewController: NSViewController {
     
+    @IBOutlet weak var bugsTableView: NSTableView!
+    @IBOutlet weak var bugTitleView: NSTextField!
+    @IBOutlet weak var bugImageView: NSImageView!
+    @IBOutlet weak var bugRating: EDStarRating!
     var bugs = [ScaryBugDoc]()
     
     override func viewDidLoad() {
