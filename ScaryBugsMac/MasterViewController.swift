@@ -35,6 +35,31 @@ class MasterViewController: NSViewController {
         let bug4 = ScaryBugDoc(title: "Wolf Spider", rating: 2.0, thumbImage: NSImage(named: "wolfSpiderThumb"), fullImage: NSImage(named: "wolfSpider"))
         bugs = [bug1, bug2, bug3, bug4]
     }
+    
+    func selectedBugDoc() -> ScaryBugDoc? {
+        let selectedRow = self.bugsTableView.selectedRow
+        if selectedRow >= 0 && selectedRow < self.bugs.count {
+            return self.bugs[selectedRow]
+        }
+        return nil
+    }
+    
+    func updateDetailInfo(doc: ScaryBugDoc?) {
+        var title = ""
+        var image: NSImage?
+        var rating = 0.0
+        
+        if let scaryBugDoc = doc {
+            title = scaryBugDoc.data.title
+            image = scaryBugDoc.fullImage
+            rating = scaryBugDoc.data.rating
+        }
+        
+        self.bugTitleView.stringValue = title
+        self.bugImageView.image = image
+        self.bugRating.rating = Float(rating)
+    }
+    
 
 }
 
@@ -62,5 +87,10 @@ extension MasterViewController: NSTableViewDelegate {
     
     func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 32
+    }
+    
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        let selectedDoc = selectedBugDoc()
+        updateDetailInfo(selectedDoc)
     }
 }
