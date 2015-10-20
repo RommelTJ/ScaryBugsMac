@@ -23,4 +23,20 @@ class ScaryBugDoc: NSObject {
         self.fullImage = fullImage
     }
     
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        self.data = aDecoder.decodeObjectForKey("data") as! ScaryBugData
+        self.thumbImage = aDecoder.decodeObjectForKey("thumbImage") as! NSImage?
+        self.fullImage = aDecoder.decodeObjectForKey("fullImage") as! NSImage?
+    }
+    
+}
+
+//MARK: NSCoding
+extension ScaryBugDoc: NSCoding {
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.data, forKey: "data")
+        aCoder.encodeObject(self.thumbImage, forKey: "thumbImage")
+        aCoder.encodeObject(self.fullImage, forKey: "fullImage")
+    }
 }

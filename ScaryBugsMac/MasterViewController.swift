@@ -22,8 +22,12 @@ class MasterViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set up some sample Bugs.
-        self.setupSampleBugs()
+        //Load the bugs or set up the sample bugs.
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey("bugs") as? NSData {
+            self.bugs = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [ScaryBugDoc]
+        } else {
+            self.setupSampleBugs()
+        }
         
         //Initialize the EDStarRating
         self.bugRating.starImage = NSImage(named: "star.png")
@@ -35,6 +39,10 @@ class MasterViewController: NSViewController {
         self.bugRating.editable = false
         self.bugRating.displayMode = UInt(EDStarRatingDisplayFull)
         self.bugRating.rating = Float(0)
+    }
+    
+    override func viewWillDisappear() {
+        self.saveBugs()
     }
 
     override var representedObject: AnyObject? {
@@ -80,6 +88,12 @@ class MasterViewController: NSViewController {
         let columnSet = NSIndexSet(index: 0)
         self.bugsTableView.reloadDataForRowIndexes(indexSet, columnIndexes: columnSet)
     }
+    
+    func saveBugs() {
+        let data = NSKeyedArchiver.archivedDataWithRootObject(self.bugs)
+        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "bugs")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
 
 }
 
@@ -94,6 +108,7 @@ extension MasterViewController {
             self.bugsTableView.removeRowsAtIndexes(NSIndexSet(index: self.bugsTableView.selectedRow), withAnimation: NSTableViewAnimationOptions.SlideRight)
             //Clear the detail info.
             updateDetailInfo(nil)
+            self.saveBugs()
         }
     }
     
@@ -108,6 +123,7 @@ extension MasterViewController {
         //Select the new bug and scroll to make sure it's visible.
         self.bugsTableView.selectRowIndexes(NSIndexSet(index: newRowIndex), byExtendingSelection: false)
         self.bugsTableView.scrollRowToVisible(newRowIndex)
+        self.saveBugs()
     }
     
     @IBAction func bugTitleDidEndEdit(sender: AnyObject) {
@@ -120,6 +136,7 @@ extension MasterViewController {
     @IBAction func changePicture(sender: AnyObject) {
         if let _ = selectedBugDoc() {
             IKPictureTaker().beginPictureTakerSheetForWindow(self.view.window, withDelegate: self, didEndSelector: "pictureTakerDidEnd:returnCode:contextInfo:", contextInfo: nil)
+            self.saveBugs()
         }
     }
     
@@ -139,6 +156,7 @@ extension MasterViewController {
         setupSampleBugs()
         updateDetailInfo(nil)
         bugsTableView.reloadData()
+        self.saveBugs()
     }
 }
 
